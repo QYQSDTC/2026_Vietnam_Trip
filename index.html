@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>越南家庭之旅 · 胡志明 / 大叻 / 芽庄 · 8天7晚</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6EDDC;
+  --paper-2:#FBF5E9;
+  --paper-3:#F0E3CB;
+  --ink:#2B2018;
+  --ink-soft:#6B5B49;
+  --lacquer:#B23A2B;
+  --lacquer-deep:#8A2A1E;
+  --jade:#1E5E52;
+  --jade-soft:#2C7C6C;
+  --gold:#C2882B;
+  --gold-soft:#D9A94E;
+  --sand:#E6D4B3;
+  --line:#D8C4A0;
+  --shadow:rgba(74,48,28,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{
+  font-family:"Noto Sans SC",sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  position:relative;
+}
+/* grain texture overlay */
+.grain{
+  position:fixed;inset:0;z-index:9998;pointer-events:none;opacity:.045;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:10000;
+  background:linear-gradient(90deg,var(--gold),var(--lacquer));box-shadow:0 0 8px var(--lacquer)}
+
+h1,h2,h3,h4{font-family:"Noto Serif SC",serif;line-height:1.25;font-weight:700}
+.serif{font-family:"Fraunces",serif}
+.kicker{
+  font-family:"Fraunces",serif;font-style:italic;font-weight:500;
+  letter-spacing:.04em;color:var(--lacquer);font-size:1.05rem;
+}
+.tag-en{font-family:"Fraunces",serif;letter-spacing:.18em;text-transform:uppercase;font-size:.72rem;font-weight:600}
+a{color:inherit;text-decoration:none}
+
+/* ===== layout helpers ===== */
+section{padding:5.5rem 1.5rem;position:relative}
+.wrap{max-width:1080px;margin:0 auto}
+.sec-head{margin-bottom:3rem;position:relative}
+.sec-head .num{font-family:"Fraunces",serif;font-size:.8rem;letter-spacing:.25em;color:var(--gold);font-weight:600}
+.sec-head h2{font-size:clamp(1.9rem,4vw,2.9rem);margin:.4rem 0 .6rem;color:var(--ink)}
+.sec-head h2 em{font-family:"Fraunces",serif;font-style:italic;color:var(--lacquer);font-weight:500}
+.sec-head p{color:var(--ink-soft);max-width:54ch}
+.rule{height:2px;width:60px;background:var(--lacquer);margin-bottom:1.4rem;position:relative}
+.rule::after{content:"";position:absolute;left:70px;top:0;height:2px;width:18px;background:var(--gold)}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.16,.84,.44,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ===== nav ===== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:9999;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.7rem 1.5rem;
+  background:rgba(246,237,220,.82);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);transition:padding .3s}
+.nav .brand{font-family:"Noto Serif SC",serif;font-weight:900;font-size:1.05rem;letter-spacing:.02em}
+.nav .brand b{color:var(--lacquer)}
+.nav ul{display:flex;gap:1.4rem;list-style:none}
+.nav ul a{font-size:.82rem;color:var(--ink-soft);position:relative;padding:.2rem 0;transition:color .25s}
+.nav ul a:hover,.nav ul a.active{color:var(--lacquer)}
+.nav ul a::after{content:"";position:absolute;left:0;bottom:-2px;height:2px;width:0;background:var(--lacquer);transition:width .3s}
+.nav ul a:hover::after,.nav ul a.active::after{width:100%}
+.nav .burger{display:none;font-size:1.4rem;color:var(--lacquer);background:none;border:none;cursor:pointer}
+@media(max-width:860px){
+  .nav ul{position:fixed;top:54px;right:0;flex-direction:column;background:var(--paper-2);
+    padding:1rem 1.6rem;border-left:1px solid var(--line);border-bottom:1px solid var(--line);
+    transform:translateX(110%);transition:transform .35s;gap:.9rem;box-shadow:-8px 8px 30px var(--shadow)}
+  .nav ul.open{transform:none}
+  .nav .burger{display:block}
+}
+
+/* ===== hero ===== */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:7rem 1.5rem 3rem;position:relative;overflow:hidden;
+  background:
+   radial-gradient(120% 90% at 85% 8%,rgba(194,136,43,.18),transparent 55%),
+   radial-gradient(100% 80% at 8% 95%,rgba(30,94,82,.16),transparent 55%),
+   linear-gradient(180deg,var(--paper-2),var(--paper));}
+.hero-deco{position:absolute;inset:0;pointer-events:none;opacity:.5}
+.hero-inner{max-width:1080px;margin:0 auto;width:100%;position:relative;z-index:2}
+.hero .kicker{font-size:1.15rem}
+.hero h1{font-size:clamp(2.8rem,9vw,6.6rem);letter-spacing:-.01em;margin:.5rem 0 .2rem;color:var(--ink)}
+.hero h1 .vn{display:block;font-family:"Fraunces",serif;font-style:italic;font-weight:500;
+  color:var(--lacquer);font-size:clamp(1.4rem,4vw,2.4rem);letter-spacing:.02em;margin-top:.3rem}
+.hero .lead{max-width:46ch;color:var(--ink-soft);font-size:1.05rem;margin:1.3rem 0 2rem}
+.hero-stats{display:flex;flex-wrap:wrap;gap:2.4rem;margin-top:.6rem}
+.hero-stats .st{position:relative}
+.hero-stats .st .v{font-family:"Fraunces",serif;font-size:2rem;font-weight:600;color:var(--jade);line-height:1}
+.hero-stats .st .l{font-size:.78rem;color:var(--ink-soft);letter-spacing:.06em;margin-top:.35rem}
+.scroll-cue{margin-top:3rem;font-family:"Fraunces",serif;font-style:italic;color:var(--ink-soft);font-size:.9rem;display:flex;align-items:center;gap:.6rem}
+.scroll-cue .dot{width:8px;height:8px;border-radius:50%;background:var(--lacquer);animation:bob 1.6s infinite}
+@keyframes bob{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(6px);opacity:1}}
+
+/* ===== route map ===== */
+.routemap{background:var(--ink);color:var(--paper);padding:4.5rem 1.5rem}
+.routemap .wrap{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center}
+.routemap .num{color:var(--gold-soft)}
+.routemap h2{color:var(--paper-2);font-size:clamp(1.7rem,3.5vw,2.4rem)}
+.routemap h2 em{font-family:"Fraunces",serif;font-style:italic;color:var(--gold-soft);font-weight:500}
+.routemap p{color:#D8C9B4}
+.route-steps{margin-top:1.6rem;display:flex;flex-direction:column;gap:.2rem}
+.route-steps li{list-style:none;display:flex;gap:.9rem;align-items:flex-start;padding:.55rem 0;border-bottom:1px dashed rgba(216,196,160,.22)}
+.route-steps .mode{font-family:"Fraunces",serif;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-soft);min-width:74px;padding-top:.2rem}
+.route-steps b{color:var(--paper-2);font-family:"Noto Serif SC",serif}
+.route-steps span{color:#C9B89E;font-size:.85rem}
+.mapfig{background:rgba(255,255,255,.03);border:1px solid rgba(216,196,160,.18);border-radius:14px;padding:1rem}
+.mapfig svg{width:100%;height:auto;display:block}
+@media(max-width:760px){.routemap .wrap{grid-template-columns:1fr}}
+
+/* ===== overview ===== */
+.ov-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:1.1rem}
+.ov-card{background:var(--paper-2);border:1px solid var(--line);border-radius:12px;padding:1.2rem 1.25rem;
+  position:relative;transition:transform .35s,box-shadow .35s;overflow:hidden}
+.ov-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--lacquer)}
+.ov-card[data-c="dalat"]::before{background:var(--jade)}
+.ov-card[data-c="nha"]::before{background:var(--gold)}
+.ov-card:hover{transform:translateY(-5px);box-shadow:0 16px 34px var(--shadow)}
+.ov-card .d{font-family:"Fraunces",serif;font-size:.74rem;letter-spacing:.14em;color:var(--ink-soft);text-transform:uppercase}
+.ov-card .day-no{font-family:"Fraunces",serif;font-size:1.9rem;font-weight:600;color:var(--lacquer);line-height:1}
+.ov-card[data-c="dalat"] .day-no{color:var(--jade)}
+.ov-card[data-c="nha"] .day-no{color:var(--gold)}
+.ov-card h4{font-size:1.05rem;margin:.5rem 0 .35rem}
+.ov-card p{font-size:.85rem;color:var(--ink-soft);line-height:1.6}
+.ov-card .loc{display:inline-block;margin-top:.7rem;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-family:"Fraunces",serif;
+  color:var(--lacquer);border:1px solid var(--lacquer);border-radius:20px;padding:.1rem .6rem}
+.ov-card[data-c="dalat"] .loc{color:var(--jade);border-color:var(--jade)}
+.ov-card[data-c="nha"] .loc{color:var(--gold);border-color:var(--gold)}
+
+/* ===== day blocks ===== */
+.days{background:linear-gradient(180deg,var(--paper),var(--paper-3))}
+.day{margin-bottom:2.4rem;background:var(--paper-2);border:1px solid var(--line);border-radius:16px;
+  overflow:hidden;box-shadow:0 10px 30px -18px var(--shadow)}
+.day-top{display:flex;align-items:center;gap:1.1rem;padding:1.4rem 1.6rem;
+  background:linear-gradient(100deg,var(--ink),#3a2c20);color:var(--paper);position:relative}
+.day[data-c="dalat"] .day-top{background:linear-gradient(100deg,#123f37,#1E5E52)}
+.day[data-c="nha"] .day-top{background:linear-gradient(100deg,#11506f,#1a6f8f)}
+.day-top .big{font-family:"Fraunces",serif;font-size:2.7rem;font-weight:600;line-height:.9;color:var(--gold-soft)}
+.day-top .meta .dt{font-family:"Fraunces",serif;letter-spacing:.12em;font-size:.74rem;text-transform:uppercase;color:#E4D4B6;opacity:.85}
+.day-top .meta h3{font-size:1.3rem;color:#fff;margin-top:.15rem}
+.day-top .pin{margin-left:auto;font-family:"Fraunces",serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  background:rgba(255,255,255,.14);padding:.3rem .8rem;border-radius:30px;border:1px solid rgba(255,255,255,.22);white-space:nowrap}
+.day-body{padding:1.5rem 1.6rem 1.7rem}
+
+.slot{display:grid;grid-template-columns:88px 1fr;gap:1rem;padding:1rem 0;border-bottom:1px dashed var(--line)}
+.slot:last-of-type{border-bottom:none}
+.slot .when{display:flex;flex-direction:column;gap:.35rem;align-items:flex-start}
+.chip{display:inline-flex;align-items:center;gap:.32rem;font-family:"Fraunces",serif;font-size:.72rem;letter-spacing:.06em;
+  padding:.18rem .55rem;border-radius:20px;font-weight:600}
+.chip .ic{width:13px;height:13px}
+.c-morning{background:#FBEAD0;color:#A9711A}
+.c-noon{background:#F6DCCB;color:#B23A2B}
+.c-eve{background:#DCE6E2;color:#1E5E52}
+.c-move{background:#E7DBC4;color:#6B5B49}
+.slot .when .time{font-size:.72rem;color:var(--ink-soft);font-family:"Fraunces",serif}
+.slot .what h4{font-size:1.04rem;margin-bottom:.3rem;color:var(--ink)}
+.slot .what p{font-size:.9rem;color:var(--ink-soft);margin-bottom:.5rem}
+.slot .what .spots{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.2rem}
+.spots .s{font-size:.78rem;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:.2rem .55rem;color:var(--ink)}
+.spots .s b{color:var(--lacquer);font-weight:700}
+
+.note{display:flex;gap:.7rem;margin-top:1.1rem;background:#FBF1DC;border:1px solid var(--sand);
+  border-left:4px solid var(--gold);border-radius:10px;padding:.8rem 1rem;font-size:.85rem;color:#7A5A1E}
+.note.tip{background:#E8F0EC;border-color:#BFD8CF;border-left-color:var(--jade);color:#1c5247}
+.note.warn{background:#FBE7E2;border-color:#E8C3B8;border-left-color:var(--lacquer);color:#8A2A1E}
+.note b{font-family:"Noto Serif SC",serif}
+.note a{color:var(--lacquer);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+.note.tip a{color:var(--jade)}
+
+.stay{display:flex;align-items:center;gap:.7rem;margin-top:1.1rem;padding:.85rem 1rem;
+  background:var(--ink);color:var(--paper-2);border-radius:10px;font-size:.88rem}
+.stay .lbl{font-family:"Fraunces",serif;letter-spacing:.12em;text-transform:uppercase;font-size:.68rem;color:var(--gold-soft);white-space:nowrap}
+.stay b{color:#fff;font-family:"Noto Serif SC",serif}
+.stay.bus{background:#3a2c20}
+@media(max-width:560px){.slot{grid-template-columns:1fr}.slot .when{flex-direction:row;align-items:center}}
+
+/* ===== hotels ===== */
+.hotels{background:var(--paper-2)}
+.hcity{margin-bottom:2.4rem}
+.hcity-head{display:flex;align-items:baseline;gap:.8rem;margin-bottom:1.1rem;padding-bottom:.6rem;border-bottom:2px solid var(--line)}
+.hcity-head .en{font-family:"Fraunces",serif;font-style:italic;color:var(--gold);font-size:1rem}
+.hcity-head h3{font-size:1.45rem}
+.hcity-head .nt{margin-left:auto;font-size:.78rem;color:var(--ink-soft);font-family:"Fraunces",serif;letter-spacing:.06em}
+.hcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.1rem}
+.hcard{background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:1.2rem 1.25rem;position:relative;
+  transition:transform .35s,box-shadow .35s}
+.hcard:hover{transform:translateY(-4px);box-shadow:0 16px 32px var(--shadow)}
+.hcard.pick{border-color:var(--lacquer);background:linear-gradient(180deg,#FBF0E9,var(--paper))}
+.hcard .badge{position:absolute;top:-11px;left:1.1rem;font-family:"Fraunces",serif;font-size:.66rem;letter-spacing:.12em;
+  text-transform:uppercase;background:var(--lacquer);color:#fff;padding:.18rem .6rem;border-radius:20px}
+.hcard .stars{color:var(--gold);font-size:.85rem;letter-spacing:.1em}
+.hcard h4{font-size:1.08rem;margin:.3rem 0 .15rem}
+.hcard .eng{font-family:"Fraunces",serif;font-style:italic;font-size:.82rem;color:var(--ink-soft);margin-bottom:.6rem}
+.hcard ul{list-style:none;margin:.5rem 0 .7rem}
+.hcard li{font-size:.84rem;color:var(--ink-soft);padding-left:1rem;position:relative;margin-bottom:.25rem}
+.hcard li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;background:var(--jade);border-radius:50%}
+.hcard .price{font-family:"Fraunces",serif;color:var(--lacquer);font-weight:600;font-size:1.02rem}
+.hcard .price small{color:var(--ink-soft);font-family:"Noto Sans SC";font-size:.74rem;font-weight:400}
+
+/* ===== food ===== */
+.food{background:linear-gradient(180deg,var(--paper-3),var(--paper))}
+.food-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.3rem}
+.fcity{background:var(--paper-2);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.fcity .fh{padding:1rem 1.25rem;color:#fff;display:flex;align-items:baseline;gap:.6rem;
+  background:linear-gradient(100deg,var(--lacquer),var(--lacquer-deep))}
+.fcity[data-c="dalat"] .fh{background:linear-gradient(100deg,var(--jade),#123f37)}
+.fcity[data-c="nha"] .fh{background:linear-gradient(100deg,#1a6f8f,#0d4a63)}
+.fcity .fh h3{font-size:1.2rem}
+.fcity .fh .en{font-family:"Fraunces",serif;font-style:italic;font-size:.8rem;opacity:.85}
+.fcity .fl{padding:1.1rem 1.25rem;list-style:none}
+.fcity .fl li{padding:.55rem 0;border-bottom:1px dashed var(--line);font-size:.9rem}
+.fcity .fl li:last-child{border-bottom:none}
+.fcity .fl b{font-family:"Noto Serif SC",serif;color:var(--ink)}
+.fcity .fl .vn{font-family:"Fraunces",serif;font-style:italic;color:var(--gold);font-size:.8rem}
+.fcity .fl span{display:block;color:var(--ink-soft);font-size:.8rem}
+
+/* ===== budget ===== */
+.budget{background:var(--ink);color:var(--paper)}
+.budget .sec-head h2{color:var(--paper-2)}
+.budget .sec-head h2 em{color:var(--gold-soft)}
+.budget .sec-head p{color:#CFBE9F}
+.budget .num{color:var(--gold-soft)}
+.btable{width:100%;border-collapse:collapse;margin-top:.5rem;font-size:.92rem}
+.btable th,.btable td{text-align:left;padding:.85rem 1rem;border-bottom:1px solid rgba(216,196,160,.18)}
+.btable th{font-family:"Fraunces",serif;letter-spacing:.1em;text-transform:uppercase;font-size:.72rem;color:var(--gold-soft);font-weight:600}
+.btable td:nth-child(2){font-family:"Fraunces",serif;color:#fff;white-space:nowrap;font-weight:600}
+.btable td:nth-child(3){color:#C9B89E;font-size:.84rem}
+.btable tr:hover td{background:rgba(255,255,255,.03)}
+.btable .total td{border-top:2px solid var(--gold-soft);border-bottom:none;font-size:1.05rem;padding-top:1.1rem}
+.btable .total td:first-child{font-family:"Noto Serif SC",serif;color:var(--gold-soft);font-weight:700}
+.budget-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.1rem;margin-top:2.2rem}
+.bcard{background:rgba(255,255,255,.04);border:1px solid rgba(216,196,160,.2);border-radius:13px;padding:1.3rem 1.2rem;text-align:center}
+.bcard .v{font-family:"Fraunces",serif;font-size:2rem;color:var(--gold-soft);font-weight:600;line-height:1}
+.bcard .l{font-size:.8rem;color:#CFBE9F;margin-top:.5rem}
+.budget .fx{margin-top:1.5rem;font-size:.82rem;color:#B7A483;font-family:"Fraunces",serif;font-style:italic}
+
+/* ===== tips ===== */
+.tips{background:var(--paper-2)}
+.tip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.2rem}
+.tcard{background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:1.3rem 1.3rem;position:relative;transition:transform .35s}
+.tcard:hover{transform:translateY(-4px)}
+.tcard .ti{display:flex;align-items:center;gap:.6rem;margin-bottom:.6rem}
+.tcard .ti svg{width:22px;height:22px;color:var(--lacquer)}
+.tcard h4{font-size:1.05rem}
+.tcard p{font-size:.86rem;color:var(--ink-soft);line-height:1.7}
+.tcard p b{color:var(--jade);font-family:"Noto Serif SC",serif}
+
+/* ===== footer ===== */
+.foot{background:var(--ink);color:var(--paper);text-align:center;padding:4rem 1.5rem 3rem}
+.foot .fk{font-family:"Fraunces",serif;font-style:italic;color:var(--gold-soft);font-size:1.1rem}
+.foot h3{font-size:clamp(1.6rem,4vw,2.4rem);color:#fff;margin:.5rem 0 1rem}
+.foot h3 em{font-family:"Fraunces",serif;font-style:italic;color:var(--lacquer);font-weight:500}
+.foot .route{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;align-items:center;color:#CFBE9F;font-size:.9rem;margin-bottom:1.5rem}
+.foot .route .arr{color:var(--gold-soft)}
+.foot small{color:#9c8a72;font-size:.76rem;display:block;margin-top:1.5rem;line-height:1.8}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="progress" id="progress"></div>
+
+<nav class="nav" id="nav">
+  <div class="brand">越南 · <b>家庭之旅</b></div>
+  <button class="burger" id="burger" aria-label="菜单">☰</button>
+  <ul id="menu">
+    <li><a href="#hero">首页</a></li>
+    <li><a href="#route">路线</a></li>
+    <li><a href="#overview">总览</a></li>
+    <li><a href="#days">每日行程</a></li>
+    <li><a href="#hotels">住宿</a></li>
+    <li><a href="#food">美食</a></li>
+    <li><a href="#budget">预算</a></li>
+    <li><a href="#tips">贴士</a></li>
+  </ul>
+</nav>
+
+<main>
+<section class="hero" id="hero">
+  <div class="hero-deco" aria-hidden="true">
+    <svg width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 1200 800">
+      <path d="M-50 640 Q300 560 600 620 T1260 580" fill="none" stroke="#1E5E52" stroke-width="1.5" stroke-dasharray="2 10" opacity=".4"/>
+      <path d="M-50 700 Q360 600 720 680 T1260 640" fill="none" stroke="#C2882B" stroke-width="1.5" stroke-dasharray="2 10" opacity=".4"/>
+      <g opacity=".5" stroke="#B23A2B" stroke-width="1.4" fill="none">
+        <path d="M1080 120 q40 -60 80 0 q-40 30 -80 0 z"/>
+        <path d="M1090 90 q35 -52 70 0"/>
+      </g>
+    </svg>
+  </div>
+  <div class="hero-inner">
+    <div class="kicker reveal">2026 · 仲夏 · 越南南部环线</div>
+    <h1 class="reveal">越南家庭之旅
+      <span class="vn">Việt Nam — A Family Voyage</span>
+    </h1>
+    <p class="lead reveal">我和太太，带着双方父母，沿越南南部一路慢行：从喧腾的西贡，到云端上的法式山城大叻，再到碧海椰风的芽庄。8 天 7 晚，节奏舒缓、景点不赶（去掉游乐园、大叻深度 2 天 + 芽庄出海跳岛），让 4 位长辈玩得舒心、住得舒适。</p>
+    <div class="hero-stats reveal">
+      <div class="st"><div class="v">8<span style="font-size:1rem">天</span> 7<span style="font-size:1rem">晚</span></div><div class="l">行程天数</div></div>
+      <div class="st"><div class="v">6<span style="font-size:1rem">人</span></div><div class="l">2 家庭 · 含 4 位长辈</div></div>
+      <div class="st"><div class="v">3<span style="font-size:1rem">城</span></div><div class="l">胡志明 · 大叻 · 芽庄</div></div>
+      <div class="st"><div class="v">¥1.4<span style="font-size:1rem">万</span></div><div class="l">单家庭预算 / 单人约 7000</div></div>
+    </div>
+    <div class="scroll-cue reveal"><span class="dot"></span>向下滚动，开启旅程 · 7月9日 出发</div>
+  </div>
+</section>
+<section class="routemap" id="route">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="num">ROUTE · 路线</div>
+      <h2>一条 <em>南部环线</em><br>三种风景，一次走遍</h2>
+      <p>飞抵西贡入境，向北直上高原避暑山城大叻，再东下海滨度假胜地芽庄，最后飞回西贡返程。城与城之间衔接顺畅，不走回头路。</p>
+      <ul class="route-steps">
+        <li><span class="mode">✈ 航班</span><div><b>昆明 → 胡志明</b> <span>MU9633 · 15:55–18:10 · 约 2.5h</span></div></li>
+        <li><span class="mode">🚐 包车</span><div><b>胡志明 → 大叻</b> <span>白天包车直达 · 约 6–7h · 约 320km</span></div></li>
+        <li><span class="mode">🚐 商务</span><div><b>大叻 → 芽庄</b> <span>Limousine 9座 · 约 3.5–4h · 山路</span></div></li>
+        <li><span class="mode">✈ 航班</span><div><b>芽庄(金兰) → 胡志明</b> <span>越捷/越航 · 约 1h</span></div></li>
+        <li><span class="mode">✈ 航班</span><div><b>胡志明 → 昆明</b> <span>19:10–23:05 · 返程</span></div></li>
+      </ul>
+    </div>
+    <div class="mapfig reveal">
+      <svg viewBox="0 0 520 460" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="sea" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#1a6f8f" stop-opacity=".25"/>
+            <stop offset="1" stop-color="#0d4a63" stop-opacity=".05"/>
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="520" height="460" fill="none"/>
+        <path d="M360 30 C 410 120 470 210 430 330 C 400 410 320 450 250 450 L520 460 L520 0 Z" fill="url(#sea)"/>
+        <path d="M120 40 C 180 70 230 60 300 110 C 360 150 380 230 350 320 C 330 380 250 430 180 440"
+              fill="#2C7C6C" fill-opacity=".10" stroke="#2C7C6C" stroke-opacity=".5" stroke-width="1.5"/>
+        <text x="430" y="250" font-family="Fraunces, serif" font-style="italic" font-size="15" fill="#7fb8c9" opacity=".7" transform="rotate(8 430 250)">South China Sea</text>
+        <!-- routes -->
+        <path d="M150 360 Q210 250 300 215" fill="none" stroke="#D9A94E" stroke-width="2.2" stroke-dasharray="3 8" stroke-linecap="round"/>
+        <path d="M300 215 Q360 180 405 150" fill="none" stroke="#D9A94E" stroke-width="2.2" stroke-dasharray="3 8" stroke-linecap="round"/>
+        <path d="M405 150 Q300 60 160 330" fill="none" stroke="#E07a55" stroke-width="2" stroke-dasharray="1 9" stroke-linecap="round" opacity=".85"/>
+        <!-- cities -->
+        <g font-family="Noto Serif SC, serif">
+          <circle cx="150" cy="360" r="9" fill="#B23A2B" stroke="#fff" stroke-width="2"/>
+          <text x="150" y="392" text-anchor="middle" font-size="15" fill="#F6EDDC" font-weight="700">胡志明市</text>
+          <text x="150" y="408" text-anchor="middle" font-family="Fraunces, serif" font-size="9" fill="#C9B89E" letter-spacing="1">SAIGON · 起 & 终</text>
+
+          <circle cx="300" cy="215" r="9" fill="#2C7C6C" stroke="#fff" stroke-width="2"/>
+          <text x="300" y="200" text-anchor="middle" font-size="15" fill="#F6EDDC" font-weight="700">大叻</text>
+          <text x="300" y="186" text-anchor="middle" font-family="Fraunces, serif" font-size="9" fill="#C9B89E" letter-spacing="1">ĐÀ LẠT · 1500m</text>
+
+          <circle cx="405" cy="150" r="9" fill="#D9A94E" stroke="#fff" stroke-width="2"/>
+          <text x="405" y="135" text-anchor="middle" font-size="15" fill="#F6EDDC" font-weight="700">芽庄</text>
+          <text x="405" y="121" text-anchor="middle" font-family="Fraunces, serif" font-size="9" fill="#C9B89E" letter-spacing="1">NHA TRANG · 海滨</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="overview" id="overview">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="rule"></div>
+      <div class="num">01 · OVERVIEW</div>
+      <h2>八日 <em>速览</em></h2>
+      <p>一眼看清每天的主题与落脚城市。红色为胡志明、绿色为大叻、金色为芽庄。</p>
+    </div>
+    <div class="ov-grid">
+      <div class="ov-card reveal" data-c="hcm"><div class="d">7/9 · 周四</div><div class="day-no">D1</div><h4>飞抵西贡</h4><p>昆明直飞胡志明，入住第一郡，夜逛阮惠步行街。</p><span class="loc">胡志明 · 宿</span></div>
+      <div class="ov-card reveal" data-c="hcm"><div class="d">7/10 · 周五</div><div class="day-no">D2</div><h4>西贡精华</h4><p>红教堂、中央邮局、统一宫、滨城市场，夜逛西贡。</p><span class="loc">胡志明 · 宿</span></div>
+      <div class="ov-card reveal" data-c="dalat"><div class="d">7/11 · 周六</div><div class="day-no">D3</div><h4>包车上大叻</h4><p>上午包车启程、午后抵达；粉红教堂、旧火车站、春香湖、夜市。</p><span class="loc">大叻 · 宿</span></div>
+      <div class="ov-card reveal" data-c="dalat"><div class="d">7/12 · 周日</div><div class="day-no">D4</div><h4>大叻·深度全天</h4><p>疯狂屋、瀑布/保大夏宫、缆车竹林禅院、山景咖啡庄园。</p><span class="loc">大叻 · 宿</span></div>
+      <div class="ov-card reveal" data-c="nha"><div class="d">7/13 · 周一</div><div class="day-no">D5</div><h4>赴芽庄·古迹泥浴</h4><p>早出发赴芽庄，午后占婆塔 + I-Resort 泥浆浴，海鲜晚餐。</p><span class="loc">芽庄 · 宿</span></div>
+      <div class="ov-card reveal" data-c="nha"><div class="d">7/14 · 周二</div><div class="day-no">D6</div><h4>出海跳岛</h4><p>木岛浮潜、玻璃底船看珊瑚，汉潭岛沙滩玩水。</p><span class="loc">芽庄 · 宿</span></div>
+      <div class="ov-card reveal" data-c="hcm"><div class="d">7/15 · 周三</div><div class="day-no">D7</div><h4>飞返西贡</h4><p>海边晨光，午后飞回胡志明，补购伴手礼、告别晚餐。</p><span class="loc">胡志明 · 宿</span></div>
+      <div class="ov-card reveal" data-c="hcm"><div class="d">7/16 · 周四</div><div class="day-no">D8</div><h4>满载而归</h4><p>自由活动、最后采购，晚航班 19:10 返昆明，结束行程。</p><span class="loc">返程昆明</span></div>
+    </div>
+  </div>
+</section>
+<section class="days" id="days">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="rule"></div>
+      <div class="num">02 · DAY BY DAY</div>
+      <h2>每日 <em>详细行程</em></h2>
+      <p>每天分上午 / 午间 / 下午 / 夜晚四段，标注景点、交通与当晚住宿。给长辈的贴心提示用色块单独标出。</p>
+    </div>
+
+    <!-- DAY 1 -->
+    <article class="day reveal" data-c="hcm">
+      <div class="day-top">
+        <div class="big">01</div>
+        <div class="meta"><div class="dt">7月9日 · 周四</div><h3>飞抵西贡 · 落地第一夜</h3></div>
+        <div class="pin">📍 胡志明市</div>
+      </div>
+      <div class="day-body">
+        <div class="slot">
+          <div class="when"><span class="chip c-move">✈ 航班</span><span class="time">15:55–18:10</span></div>
+          <div class="what">
+            <h4>昆明长水 ✈ 胡志明新山一机场（SGN）</h4>
+            <p>搭乘东航 MU9633 直飞，约 2.5 小时。越南比北京晚 1 小时，落地当地时间约 18:10。入境后提取行李、办理电话卡、兑换少量越南盾。</p>
+            <div class="spots"><span class="s">🛂 落地通关</span><span class="s">📶 Viettel 4G 卡</span><span class="s">💵 机场少量换汇</span></div>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="when"><span class="chip c-eve">🌙 傍晚</span><span class="time">19:00 起</span></div>
+          <div class="what">
+            <h4>Grab 前往第一郡酒店 · 入住安顿</h4>
+            <p>机场到市中心约 30–40 分钟（建议叫 7 座 Grab 一次坐下 6 人或分两台）。先入住放下行李，让长辈稍作休息。</p>
+            <div class="spots"><span class="s">🚕 Grab 约 <b>20万盾</b>/车</span><span class="s">🏨 第一郡核心区</span></div>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="when"><span class="chip c-eve">🌙 夜晚</span><span class="time">20:00 起</span></div>
+          <div class="what">
+            <h4>第一夜·轻松觅食</h4>
+            <p>酒店附近吃第一碗地道越南牛肉粉与法棍，体力好可去阮惠步行街、西贡河边散步感受夜色；长辈可早些回房休息倒时差。</p>
+            <div class="spots"><span class="s">🍜 越南河粉 Phở</span><span class="s">🥖 法棍 Bánh mì</span><span class="s">🚶 阮惠步行街</span></div>
+          </div>
+        </div>
+        <div class="note tip"><span>👴</span><div><b>长辈贴士：</b>当天舟车劳顿，第一晚不安排重活动，吃顿热乎的、早点休息为主。备好常用药与防蚊液。</div></div>
+        <div class="stay"><span class="lbl">当晚住宿</span><div>胡志明市第一郡 4 星舒适酒店（详见<a href="#hotels" style="color:var(--gold-soft);text-decoration:underline">住宿推荐</a>）·&nbsp;<b>自由中心西贡城市之心 / 滨城汉默克</b></div></div>
+      </div>
+    </article>
+
+    <!-- DAY 2 -->
+    <article class="day reveal" data-c="hcm">
+      <div class="day-top">
+        <div class="big">02</div>
+        <div class="meta"><div class="dt">7月10日 · 周五</div><h3>西贡精华一日 · 夜宿西贡</h3></div>
+        <div class="pin">📍 胡志明市</div>
+      </div>
+      <div class="day-body">
+        <div class="slot">
+          <div class="when"><span class="chip c-morning">☀ 上午</span><span class="time">08:30–12:00</span></div>
+          <div class="what">
+            <h4>法式殖民地标巡礼（步行即可）</h4>
+            <p>第一郡景点高度集中，步行串联即可。先打卡红教堂与中央邮局，再到书街、市政厅前胡志明像与阮惠步行街，到咖啡公寓喝一杯越式滴漏或鸡蛋咖啡。</p>
+            <div class="spots"><span class="s"><b>红教堂</b>（外观修缮中）</span><span class="s"><b>中央邮局</b></span><span class="s">书街</span><span class="s">咖啡公寓</span><span class="s">阮惠步行街</span></div>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="when"><span class="chip c-noon">🍃 午间</span><span class="time">12:00–13:30</span></div>
+          <div class="what">
+            <h4>地道越南菜午餐</h4>
+            <p>推荐 Quán Ngon 138（一站式尝遍越南各地小吃，长辈友好）或 Cục Gạch Quán 越式家常菜。</p>
+            <div class="spots"><span class="s">🍤 Quán Ngon 138</span><span class="s">🥘 越式家常菜</span></div>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="when"><span class="chip c-noon">🏛 下午</span><span class="time">14:00–17:30</span></div>
+          <div class="what">
+            <h4>历史人文 + 市场采购 + 按摩</h4>
+            <p>统一宫与战争遗迹博物馆任选其一（避免太累）；之后逛滨城市场买腰果、咖啡、果干等伴手礼；再做一次越式古法按摩，缓解长辈疲劳。</p>
+            <div class="spots"><span class="s"><b>统一宫</b> 或 战争博物馆</span><span class="s">滨城市场</span><span class="s">💆 越式按摩 约 <b>30万盾</b></span></div>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="when"><span class="chip c-eve">🌙 夜晚</span><span class="time">18:00 起</span></div>
+          <div class="what">
+            <h4>夜逛西贡 · 早休养精神</h4>
+            <p>晚餐后可逛阮惠步行街、范五老酒吧街，或上屋顶酒吧看夜景；长辈做个越式按摩放松。不赶夜车，回酒店好好睡一晚，养足精神迎接次日的大叻车程。记得提前 1–2 天约好次日上午的包车。</p>
+            <div class="spots"><span class="s">🍻 范五老 / 阮惠夜逛</span><span class="s">💆 越式按摩</span><span class="s">🚐 预约次日包车</span></div>
+          </div>
+        </div>
+        <div class="note tip"><span>🚐</span><div><b>交通说明：</b>大叻莲姜机场（DLI）2026/3/4–8/19 关闭维修、7 月无航班，去大叻只能走陆路。本方案<b>不坐夜班大巴</b>，改为今晚在胡志明多住一晚、<b>次日白天包车直达大叻</b>——门到门、可中途停靠休息，最适合长辈。整车（16 座或商务车）一程约 <b>280万–400万盾</b>（6 人 + 行李分摊划算）。<br><b>包车预订渠道（搜"胡志明→大叻 包车/接送/Limousine"，选含酒店接送、提前 2–3 天订）：</b><a href="https://12go.asia/zh/travel/ho-chi-minh-city/da-lat" target="_blank" rel="noopener">12Go Asia</a> · <a href="https://www.klook.com/zh-CN/" target="_blank" rel="noopener">Klook 客路</a> · <a href="https://www.kkday.com/zh-cn/" target="_blank" rel="noopener">KKday</a> · <a href="https://www.bookaway.com/" target="_blank" rel="noopener">Bookaway</a>。</div></div>
+        <div class="stay"><span class="lbl">当晚住宿</span><div>胡志明市第一郡 4 星舒适酒店（连住第 2 晚）·&nbsp;<b>自由中心西贡城市之心 / 滨城汉默克</b></div></div>
+      </div>
+    </article>
+
+    <!-- DAY 3 -->
+    <article class="day reveal" data-c="dalat">
+      <div class="day-top">
+        <div class="big">03</div>
+        <div class="meta"><div class="dt">7月11日 · 周六</div><h3>包车上大叻 · 法式童话</h3></div>
+        <div class="pin">📍 胡志明 → 大叻</div>
+      </div>
+      <div class="day-body">
+        <div class="slot">
+          <div class="when"><span class="chip c-move">🚐 上午</span><span class="time">约 07:30 出发</span></div>
+          <div class="what">
+            <h4>早餐后包车启程 · 胡志明 → 大叻</h4>
+            <p>退房后乘包车（16 座或商务车）白天出发前往大叻，约 320km、车程 6–7 小时。门到门、可按需中途停靠服务区休息用餐，比夜班大巴舒适。山路弯多，长辈备好晕车药、坐靠前。</p>
+            <div class="spots"><span class="s">🚐 包车直达 约 <b>6–7h</b></span><span class="s">整车约 <b>280–400万盾</b></span><span class="s">🧥 大叻凉爽备外套</span></div>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="when"><span class="chip c-noon">🍃 午间</span><span class="time">途中</span></div>
+          <div class="what">
+            <h4>途中休息 · 简餐</h4>
+            <p>沿途在服务区或小镇停车用午餐、活动腿脚；渐入高原松林，风景越来越美，可停车拍照。</p>
+            <div class="spots"><span class="s">🛣 服务区 / 小镇简餐</span></div>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="when"><span class="chip c-noon">📷 下午</span><span class="time">约 14:30 抵达</span></div>
+          <div class="what">
+            <h4>抵达大叻 · 入住 + 粉红教堂 + 旧火车站</h4>
+            <p>午后抵达大叻、入住放下行李。先到梦幻的玛丽修道院（粉红教堂，可免费入内）；再到法式风情的大叻旧火车站，登复古小火车拍照。</p>
+            <div class="spots"><span class="s"><b>玛丽修道院</b> 粉红教堂 · 免费</span><span class="s"><b>旧火车站</b> 门票约 <b>5万盾</b></span></div>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="when"><span class="chip c-eve">🌙 傍晚</span><span class="time">17:00 起</span></div>
+          <div class="what">
+            <h4>春香湖 + 大叻大教堂 + 夜市觅食</h4>
+            <p>沿春香湖畔散步、途经湖边的大叻大教堂（公鸡教堂）；入夜逛大叻夜市：烤米纸（越南披萨）、热豆浆、招牌牛油果冰淇淋，边逛边吃。</p>
+            <div class="spots"><span class="s">春香湖</span><span class="s">大叻大教堂</span><span class="s">🍕 烤米纸</span><span class="s">🥑 牛油果冰淇淋</span></div>
+          </div>
+        </div>
+        <div class="stay"><span class="lbl">当晚住宿</span><div>大叻市中心春香湖畔舒适酒店（连住第 1 晚）·&nbsp;<b>杜帕克 Du Parc / 帕玉 Ngọc Phát / 金典精品</b></div></div>
+      </div>
+    </article>
+
+    <!-- DAY 4 -->
+    <article class="day reveal" data-c="dalat">
+      <div class="day-top">
+        <div class="big">04</div>
+        <div class="meta"><div class="dt">7月12日 · 周日</div><h3>大叻深度第二天 · 山林瀑布</h3></div>
+        <div class="pin">📍 大叻</div>
+      </div>
+      <div class="day-body">
+        <div class="slot">
+          <div class="when"><span class="chip c-morning">🌲 上午</span><span class="time">08:30–12:00</span></div>
+          <div class="what">
+            <h4>疯狂屋 + 达坦拉瀑布 / 保大夏宫</h4>
+            <p>先打卡天马行空的疯狂屋（Crazy House，建议 1.5 小时）。之后按体力选：<b>活力路线</b>——达坦拉瀑布的亚洲最长高山滑道，手刹控速穿越森林（年轻人必玩）；<b>轻松路线</b>——末代皇帝保大夏宫（避暑行宫，平缓好走、有故事），更适合长辈。</p>
+            <div class="spots"><span class="s"><b>疯狂屋</b> 门票约 <b>8万盾</b></span><span class="s"><b>达坦拉瀑布</b> 滑道约 <b>25万盾</b></span><span class="s">保大夏宫 约 <b>5万盾</b></span></div>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="when"><span class="chip c-noon">🍃 午间</span><span class="time">12:00–13:30</span></div>
+          <div class="what">
+            <h4>悠闲午餐</h4>
+            <p>大叻餐饮选择多，可吃越式简餐或再来一锅高原蔬菜火锅，节奏放慢、不赶时间。</p>
+            <div class="spots"><span class="s">🍜 越式简餐 / 火锅</span></div>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="when"><span class="chip c-noon">🚡 下午</span><span class="time">14:00–17:00</span></div>
+          <div class="what">
+            <h4>罗宾山缆车 + 竹林禅院</h4>
+            <p>乘罗宾山缆车俯瞰全城与松林，缆车可直达竹林禅院（Trúc Lâm）——园林式寺庙、清幽好走，可远眺宣林湖，长辈很喜欢。</p>
+            <div class="spots"><span class="s">🚡 罗宾山缆车 往返约 <b>10万盾</b></span><span class="s">🛕 竹林禅院 · 免费</span></div>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="when"><span class="chip c-eve">☕ 傍晚</span><span class="time">17:00 起</span></div>
+          <div class="what">
+            <h4>山景咖啡庄园 + 市集采购手信</h4>
+            <p>到 Mê Linh 等山景咖啡庄园喝杯地道大叻咖啡、看山谷云雾、拍美照；回市区在大叻集市采购咖啡、果酱、洋蓟茶、草莓干等手信。</p>
+            <div class="spots"><span class="s">☕ Mê Linh 咖啡庄园</span><span class="s">🛍 大叻集市手信</span><span class="s">🍓 大叻草莓</span></div>
+          </div>
+        </div>
+        <div class="note tip"><span>🧥</span><div><b>长辈贴士：</b>大叻早晚凉（15–25℃）、紫外线强，备外套与防晒；缆车 + 禅院的组合比瀑布滑道轻松，长辈走走停停、喝咖啡看风景最惬意。</div></div>
+        <div class="stay"><span class="lbl">当晚住宿</span><div>大叻市中心春香湖畔舒适酒店（连住第 2 晚 · 末晚）·&nbsp;<b>杜帕克 Du Parc / 帕玉 Ngọc Phát / 金典精品</b></div></div>
+      </div>
+    </article>
+
+    <!-- DAY 5 -->
+    <article class="day reveal" data-c="nha">
+      <div class="day-top">
+        <div class="big">05</div>
+        <div class="meta"><div class="dt">7月13日 · 周一</div><h3>大叻 → 芽庄 · 午后古迹泥浴</h3></div>
+        <div class="pin">📍 大叻 → 芽庄</div>
+      </div>
+      <div class="day-body">
+        <div class="slot">
+          <div class="when"><span class="chip c-move">🚐 上午</span><span class="time">约 07:30 出发</span></div>
+          <div class="what">
+            <h4>早餐后早出发 · Limousine 大叻 → 芽庄</h4>
+            <p>今天早些动身，给下午留出充足时间。早餐后退房，乘 9 座 Limousine 商务车前往芽庄，约 3.5–4 小时，途经庆黎山口、山海风光极美。山路弯多，长辈备晕车药、坐靠前；含酒店接送更省心。</p>
+            <div class="spots"><span class="s">🚐 Limousine 9座</span><span class="s">约 <b>37–47万盾</b>/人</span><span class="s">含酒店接送</span></div>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="when"><span class="chip c-noon">🍃 午间</span><span class="time">约 11:30 抵达</span></div>
+          <div class="what">
+            <h4>抵达芽庄 · 午餐 + 入住</h4>
+            <p>中午抵达芽庄，先吃顿海边午餐、办理入住放下行李，稍作休整准备下午的活动。</p>
+            <div class="spots"><span class="s">🏖 陈富街海景房</span><span class="s">🍤 海边午餐</span></div>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="when"><span class="chip c-noon">🛕 下午</span><span class="time">14:00–17:30</span></div>
+          <div class="what">
+            <h4>婆那加占婆塔 + I-Resort 矿物泥浆浴</h4>
+            <p>先参观建于 7–12 世纪的婆那加占婆塔（印度教古迹，登高俯瞰芽庄港）；再到附近的 I-Resort 泡矿物泥浆浴 + 温泉，舒缓长途车程的疲劳，长辈尤其喜欢。两处都在城北、距离很近，顺路高效。</p>
+            <div class="spots"><span class="s"><b>婆那加占婆塔</b> 门票约 <b>3万盾</b></span><span class="s"><b>I-Resort 泥浆浴</b> 约 <b>30–45万盾</b>/人</span><span class="s">♨️ 温泉</span></div>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="when"><span class="chip c-eve">🌙 傍晚</span><span class="time">18:00 起</span></div>
+          <div class="what">
+            <h4>海鲜大餐 + 夜市</h4>
+            <p>傍晚到海边大排档大快朵颐：烤龙虾、蒜蓉生蚝、罗望子炒蟹；之后逛芽庄夜市，正式开启海岛度假模式。</p>
+            <div class="spots"><span class="s">🦞 海鲜大排档</span><span class="s">🛍 芽庄夜市</span></div>
+          </div>
+        </div>
+        <div class="note tip"><span>🌧️</span><div><b>天气贴士：</b>7 月芽庄气温约 28–34℃、偏炎热，午后偶有阵雨，带好防晒、遮阳帽与轻便雨具；自带泳衣浴巾泡泥浆浴更省钱。</div></div>
+        <div class="stay"><span class="lbl">当晚住宿</span><div>芽庄陈富街海景酒店（连住第 1 晚）·&nbsp;<b>美居 Mercure / 诺富特 Novotel / 洲际 InterContinental</b></div></div>
+      </div>
+    </article>
+
+    <!-- DAY 6 -->
+    <article class="day reveal" data-c="nha">
+      <div class="day-top">
+        <div class="big">06</div>
+        <div class="meta"><div class="dt">7月14日 · 周二</div><h3>出海跳岛 · 浮潜碧海</h3></div>
+        <div class="pin">📍 芽庄</div>
+      </div>
+      <div class="day-body">
+        <div class="slot">
+          <div class="when"><span class="chip c-morning">⛵ 上午</span><span class="time">08:30 集合</span></div>
+          <div class="what">
+            <h4>出海跳岛 · 木岛 Hòn Mun 浮潜</h4>
+            <p>码头集合登船出海。首站木岛（Hòn Mun）——越南最美珊瑚礁保护区，浮潜看五彩珊瑚与热带鱼；不下水的长辈可乘玻璃底船观珊瑚，同样精彩。</p>
+            <div class="spots"><span class="s">⛵ 跳岛游船</span><span class="s"><b>木岛浮潜</b></span><span class="s">🐠 玻璃底船看珊瑚</span></div>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="when"><span class="chip c-noon">🍽 午间</span><span class="time">船上 / 岛上</span></div>
+          <div class="what">
+            <h4>船上海鲜午餐</h4>
+            <p>在船上或岛上享用海鲜午餐，部分船家有水上乐队、浮台酒吧等趣味活动，氛围轻松。</p>
+            <div class="spots"><span class="s">🦐 船上海鲜餐</span></div>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="when"><span class="chip c-noon">🏝 下午</span><span class="time">13:30–16:00</span></div>
+          <div class="what">
+            <h4>汉潭岛 / 一支香岛 · 沙滩玩水</h4>
+            <p>登汉潭岛（Hòn Tằm）或一支香岛：细软沙滩、清澈海水，可游泳、晒太阳、玩水上项目（香蕉船、皮划艇等）。长辈可在沙滩遮阳处看海休息。</p>
+            <div class="spots"><span class="s">🏝 汉潭岛 / 一支香岛</span><span class="s">🏊 游泳 · 水上项目</span></div>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="when"><span class="chip c-eve">🌙 傍晚</span><span class="time">16:30 返港</span></div>
+          <div class="what">
+            <h4>返回市区 · 海鲜 + 夜市收尾</h4>
+            <p>下午返回市区休整。晚上再来一顿芽庄海鲜，逛锦市场/夜市买干货海产、燕窝等手信，为海岛之行画上句点。</p>
+            <div class="spots"><span class="s">🦞 海鲜大餐</span><span class="s">🛍 锦市场手信</span><span class="s">🥥 椰子冻 / 焦糖布丁</span></div>
+          </div>
+        </div>
+        <div class="note tip"><span>⛵</span><div><b>长辈贴士：</b>跳岛建议选<b>正规小团 / VIP 船</b>（人少、不强制消费），避开喧闹的低价"派对船"；备<b>晕船药、防晒、防水袋</b>；不下水也能坐玻璃底船赏珊瑚。如遇风浪/降雨停航，可改为丈夫石看海 + 海滩休闲。</div></div>
+        <div class="stay"><span class="lbl">当晚住宿</span><div>芽庄陈富街海景酒店（连住第 2 晚 · 末晚）</div></div>
+      </div>
+    </article>
+
+    <!-- DAY 7 -->
+    <article class="day reveal" data-c="hcm">
+      <div class="day-top">
+        <div class="big">07</div>
+        <div class="meta"><div class="dt">7月15日 · 周三</div><h3>海边晨光 · 飞返西贡</h3></div>
+        <div class="pin">📍 芽庄 → 胡志明</div>
+      </div>
+      <div class="day-body">
+        <div class="slot">
+          <div class="when"><span class="chip c-morning">🌅 上午</span><span class="time">退房前</span></div>
+          <div class="what">
+            <h4>海边晨光 · 悠闲早餐</h4>
+            <p>不赶行程，睡到自然醒。在酒店享用海景早餐，到沙滩散步、拍照，享受最后的海风。视航班时间退房。</p>
+            <div class="spots"><span class="s">🏖 沙滩散步</span><span class="s">🧳 退房</span></div>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="when"><span class="chip c-move">✈ 航班</span><span class="time">午前/午后</span></div>
+          <div class="what">
+            <h4>金兰机场（CXR）✈ 胡志明（SGN）</h4>
+            <p>金兰国际机场距市区约 35km、车程 45 分钟，请预留充足时间。乘越捷/越南航空约 1 小时飞回胡志明，抵达后入住第一郡酒店。</p>
+            <div class="spots"><span class="s">🚕 市区→机场约 45min</span><span class="s">✈ 飞行约 1h</span><span class="s">国内段约 <b>40–55万盾</b>/人</span></div>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="when"><span class="chip c-eve">🛍 傍晚</span><span class="time">17:00 起</span></div>
+          <div class="what">
+            <h4>补购伴手礼 + 告别晚餐</h4>
+            <p>回到熟悉的第一郡，到滨城市场/超市补齐 G7 咖啡、腰果、椰子糖、果干等手信；咖啡公寓喝杯咖啡。晚上来顿丰盛的越南大餐，犒劳一路同行的家人。</p>
+            <div class="spots"><span class="s">☕ G7 / 中原咖啡</span><span class="s">🥥 椰子糖 · 腰果</span><span class="s">🍽 越南大餐</span></div>
+          </div>
+        </div>
+        <div class="stay"><span class="lbl">当晚住宿</span><div>胡志明市第一郡 4 星舒适酒店 ·&nbsp;<b>自由中心西贡城市之心 / 滨城汉默克</b></div></div>
+      </div>
+    </article>
+
+    <!-- DAY 8 -->
+    <article class="day reveal" data-c="hcm">
+      <div class="day-top">
+        <div class="big">08</div>
+        <div class="meta"><div class="dt">7月16日 · 周四</div><h3>满载而归 · 返程昆明</h3></div>
+        <div class="pin">📍 胡志明 → 昆明</div>
+      </div>
+      <div class="day-body">
+        <div class="slot">
+          <div class="when"><span class="chip c-morning">☀ 上午</span><span class="time">自由活动</span></div>
+          <div class="what">
+            <h4>自由活动 · 最后采购</h4>
+            <p>退房后行李寄存酒店。可再逛逛书街、咖啡馆，或做最后的伴手礼采购（白虎活络膏、绿油精、越南斗笠、滴漏咖啡壶等）。找家舒服的餐厅吃顿告别午餐。</p>
+            <div class="spots"><span class="s">🛍 最后采购</span><span class="s">☕ 咖啡时光</span></div>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="when"><span class="chip c-move">✈ 航班</span><span class="time">19:10–23:05</span></div>
+          <div class="what">
+            <h4>胡志明 ✈ 昆明 · 行程圆满结束</h4>
+            <p>建议提前约 3 小时到新山一机场办理值机与退税（如有）。乘航班 19:10 起飞，23:05 抵达昆明，结束 8 天 7 晚的越南家庭之旅。</p>
+            <div class="spots"><span class="s">🛫 提前 3h 到机场</span><span class="s">🧾 退税柜台</span><span class="s">🏠 平安到家</span></div>
+          </div>
+        </div>
+        <div class="note tip"><span>🧳</span><div><b>返程提示：</b>越南盾不易在国内兑换，离境前花完或换回；液体伴手礼（鱼露、咖啡液）记得托运；核对护照、登机牌与行李。</div></div>
+        <div class="stay"><span class="lbl">行程结束</span><div>抵达昆明 · <b>满载美好回忆，平安到家 🎉</b></div></div>
+      </div>
+    </article>
+  </div>
+</section>
+<section class="hotels" id="hotels">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="rule"></div>
+      <div class="num">03 · WHERE TO STAY</div>
+      <h2>住宿 <em>推荐</em> · 舒适型中高档</h2>
+      <p>全程选 4 星舒适型为主、位置便捷、含早、家庭房型。大叻、芽庄各连住 2 晚；价格为旺季双人间含早参考价（人民币/晚）。</p>
+    </div>
+
+    <!-- 胡志明 -->
+    <div class="hcity reveal">
+      <div class="hcity-head"><span class="en">Ho Chi Minh City</span><h3>胡志明市 · 第一郡</h3><span class="nt">D1 · D2 · D7 · 共 3 晚</span></div>
+      <div class="hcards">
+        <div class="hcard pick">
+          <span class="badge">首选</span>
+          <div class="stars">★★★★</div>
+          <h4>自由中心西贡城市之心</h4>
+          <div class="eng">Liberty Central Saigon Citypoint</div>
+          <ul>
+            <li>第一郡黄金地段，步行可达红教堂、邮局、滨城市场</li>
+            <li>屋顶无边泳池 + Sky Bar，自带影院，行政酒廊下午茶</li>
+            <li>现代清新装修，家庭/双床房充足</li>
+          </ul>
+          <div class="price">¥600–800 <small>/ 晚（双人含早）</small></div>
+        </div>
+        <div class="hcard">
+          <div class="stars">★★★☆</div>
+          <h4>滨城汉默克酒店</h4>
+          <div class="eng">The Hammock Hotel Ben Thanh</div>
+          <ul>
+            <li>紧邻滨城市场，步行 9 分钟到达</li>
+            <li>“家庭巢”房型，迷你吧/零食/洗衣免费</li>
+            <li>屋顶吊床休闲区，性价比高</li>
+          </ul>
+          <div class="price">¥450–600 <small>/ 晚（双人含早）</small></div>
+        </div>
+        <div class="hcard">
+          <div class="stars">★★★★</div>
+          <h4>其他备选</h4>
+          <div class="eng">Fusion / Silverland / A&Em</div>
+          <ul>
+            <li>同处第一郡，步行生活圈成熟</li>
+            <li>可按预算与房型空房灵活替换</li>
+            <li>建议提前在 Agoda / 携程比价预订</li>
+          </ul>
+          <div class="price">¥400–700 <small>/ 晚</small></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 大叻 -->
+    <div class="hcity reveal">
+      <div class="hcity-head"><span class="en">Đà Lạt</span><h3>大叻 · 市中心春香湖畔</h3><span class="nt">D3–D4 · 连住 2 晚</span></div>
+      <div class="hcards">
+        <div class="hcard pick">
+          <span class="badge">首选</span>
+          <div class="stars">★★★★</div>
+          <h4>大叻杜帕克酒店</h4>
+          <div class="eng">Du Parc Hotel Dalat</div>
+          <ul>
+            <li>1932 年法式建筑，复古优雅有韵味</li>
+            <li>市中心，近春香湖、夜市、大教堂</li>
+            <li>设施齐全、4 星品质、性价比好</li>
+          </ul>
+          <div class="price">¥400–550 <small>/ 晚（双人含早）</small></div>
+        </div>
+        <div class="hcard">
+          <div class="stars">★★★</div>
+          <h4>大叻帕玉酒店</h4>
+          <div class="eng">Ngọc Phát Dalat Hotel</div>
+          <ul>
+            <li>正对春香湖，过马路即超市/广场</li>
+            <li>距市中心 0.2km，位置评分高</li>
+            <li>早餐种类丰富，标准家庭房</li>
+          </ul>
+          <div class="price">¥350–480 <small>/ 晚（双人含早）</small></div>
+        </div>
+        <div class="hcard">
+          <div class="stars">★★★★</div>
+          <h4>大叻金典精品酒店</h4>
+          <div class="eng">Goldient Boutique Hotel</div>
+          <ul>
+            <li>恒温泳池（高原凉爽也能泡），花园安静</li>
+            <li>带阳台/山谷景，家庭公寓套房可选</li>
+            <li>性价比评分 9.3，适合带长辈</li>
+          </ul>
+          <div class="price">¥400–550 <small>/ 晚</small></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 芽庄 -->
+    <div class="hcity reveal">
+      <div class="hcity-head"><span class="en">Nha Trang</span><h3>芽庄 · 陈富街海景</h3><span class="nt">D5–D6 · 连住 2 晚</span></div>
+      <div class="hcards">
+        <div class="hcard pick">
+          <span class="badge">首选</span>
+          <div class="stars">★★★★</div>
+          <h4>芽庄美居海滩酒店</h4>
+          <div class="eng">Mercure Nha Trang Beach</div>
+          <ul>
+            <li>陈富街海滨 4 星，家庭房“1大床+2单床”布局</li>
+            <li>3 楼餐厅/泳池/房间皆可看海，员工热情</li>
+            <li>近海滩、闹市，亲子家庭友好</li>
+          </ul>
+          <div class="price">¥600–800 <small>/ 晚（海景含早）</small></div>
+        </div>
+        <div class="hcard">
+          <div class="stars">★★★★</div>
+          <h4>芽庄诺富特酒店</h4>
+          <div class="eng">Novotel Nha Trang</div>
+          <ul>
+            <li>陈富街最核心位置，过马路即海滩</li>
+            <li>多数房带阳台直面大海，自助餐口碑好</li>
+            <li>水疗/健身/泳池齐全</li>
+          </ul>
+          <div class="price">¥650–850 <small>/ 晚（海景含早）</small></div>
+        </div>
+        <div class="hcard">
+          <span class="badge" style="background:var(--gold)">可升级</span>
+          <div class="stars">★★★★★</div>
+          <h4>芽庄洲际酒店</h4>
+          <div class="eng">InterContinental Nha Trang</div>
+          <ul>
+            <li>陈富街最精致五星，家庭海景高低床套房</li>
+            <li>私人阳台朝海赏湾，含丰盛海景自助早餐</li>
+            <li>行政酒廊俯瞰芽庄湾，长辈住得更舒心</li>
+          </ul>
+          <div class="price">¥900–1300 <small>/ 晚（活动后更划算）</small></div>
+        </div>
+      </div>
+    </div>
+    <div class="note tip reveal" style="max-width:none"><span>💡</span><div><b>订房建议：</b>6 人按 <b>3 间双人/双床房</b>预订最经济（每对夫妻一间）。芽庄海景房连住 2 晚，删减一天后预算更宽裕，给长辈升级到洲际等五星海景也在可控范围，很值得考虑。所有酒店建议提前 1–2 个月在 Agoda / Booking / 携程比价锁定海景房。</div></div>
+  </div>
+</section>
+<section class="food" id="food">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="rule"></div>
+      <div class="num">04 · WHAT TO EAT</div>
+      <h2>必吃 <em>美食</em> 地图</h2>
+      <p>越南菜清爽不油腻、酸辣鲜甜，物价亲民。三座城市各有招牌，照着点准没错。</p>
+    </div>
+    <div class="food-grid">
+      <div class="fcity reveal" data-c="hcm">
+        <div class="fh"><h3>胡志明市</h3><span class="en">Saigon</span></div>
+        <ul class="fl">
+          <li><b>越南牛肉河粉</b> <span class="vn">Phở Bò</span><span>国民早餐，汤鲜粉滑 · Phở Lệ / Phở Hòa</span></li>
+          <li><b>越式法棍</b> <span class="vn">Bánh Mì</span><span>外脆内丰 · Bánh Mì Huỳnh Hoa 排队名店</span></li>
+          <li><b>碎米饭</b> <span class="vn">Cơm Tấm</span><span>烤排骨配煎蛋 · Cơm Tấm Ba Ghiền</span></li>
+          <li><b>生春卷 / 炸春卷</b> <span class="vn">Gỏi cuốn</span><span>蘸鱼露，清爽开胃</span></li>
+          <li><b>滴漏咖啡 / 椰子咖啡</b> <span class="vn">Cà phê</span><span>Cộng Cà Phê 网红椰奶咖啡</span></li>
+          <li><b>一站式越南菜</b> <span class="vn">Quán Ngon 138</span><span>各地小吃一次尝遍，长辈友好</span></li>
+        </ul>
+      </div>
+      <div class="fcity reveal" data-c="dalat">
+        <div class="fh"><h3>大叻</h3><span class="en">Đà Lạt</span></div>
+        <ul class="fl">
+          <li><b>高原蔬菜火锅</b> <span class="vn">Lẩu</span><span>凉爽山城最暖胃 · LEGUDA</span></li>
+          <li><b>烤米纸“越南披萨”</b> <span class="vn">Bánh tráng nướng</span><span>夜市必吃街头小吃</span></li>
+          <li><b>牛油果冰淇淋</b> <span class="vn">Kem bơ</span><span>Kem Thanh Thảo 招牌</span></li>
+          <li><b>烤肉米线</b> <span class="vn">Nem nướng</span><span>炭烤肉丸卷生菜</span></li>
+          <li><b>热豆浆 / 烤红薯</b> <span class="vn">Sữa đậu nành</span><span>夜市暖身甜点</span></li>
+          <li><b>大叻草莓 / 洋蓟茶 / 咖啡</b> <span class="vn">Local</span><span>高原特产，可买手信</span></li>
+        </ul>
+      </div>
+      <div class="fcity reveal" data-c="nha">
+        <div class="fh"><h3>芽庄</h3><span class="en">Nha Trang</span></div>
+        <ul class="fl">
+          <li><b>海鲜大排档</b> <span class="vn">Hải sản</span><span>烤龙虾、生蚝、罗望子炒蟹 · Vân Đồn 巷</span></li>
+          <li><b>宁和烤肉米线</b> <span class="vn">Nem Nướng</span><span>Nem Nướng Đặng Văn Quyên</span></li>
+          <li><b>鱼饼米线</b> <span class="vn">Bún cá</span><span>Bún Cá Nguyên Loan 本地名店</span></li>
+          <li><b>烤海胆 / 炒蛤蜊</b> <span class="vn">Nhum / Sò</span><span>海边夜市特色</span></li>
+          <li><b>焦糖布丁咖啡</b> <span class="vn">Kem Flan</span><span>消暑甜品</span></li>
+          <li><b>燕窝</b> <span class="vn">Yến sào</span><span>芽庄特产，可带回送礼</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="budget" id="budget">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="rule" style="background:var(--gold-soft)"></div>
+      <div class="num">05 · BUDGET</div>
+      <h2>预算 <em>明细</em></h2>
+      <p>以下为单人全包预算估算（含国际机票、签证、住宿、交通、门票、餐饮等）。白天包车 + 多住 1 晚胡志明 + 芽庄出海跳岛：单人约 6,700–7,400 元，单家庭（2 人）约 1.34 万–1.48 万元（含海岛跳岛，略高于 1.4 万目标，可按船型/酒店档次微调）。</p>
+    </div>
+    <div class="reveal" style="overflow-x:auto">
+      <table class="btable">
+        <thead><tr><th>项目</th><th>单人估算</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td>昆明⇄胡志明 往返国际机票</td><td>¥2,000–2,500</td><td>东航 MU9633 含税，提前订更优</td></tr>
+          <tr><td>芽庄(金兰)→胡志明 国内段</td><td>¥400–550</td><td>越捷 / 越航，约 1 小时</td></tr>
+          <tr><td>住宿（7 晚 · 双人房分摊）</td><td>¥1,750–2,300</td><td>胡志明 3 晚、大叻 / 芽庄各 2 晚（4 星舒适型）</td></tr>
+          <tr><td>城际交通（包车 + Limousine）</td><td>¥300–460</td><td>胡志明→大叻白天包车 + 大叻→芽庄 9 座商务车</td></tr>
+          <tr><td>市内交通（Grab / 包车）</td><td>¥300–450</td><td>全程 8 天打车摊算</td></tr>
+          <tr><td>景点门票 + 出海跳岛</td><td>¥600–880</td><td>跳岛浮潜、泥浆浴、占婆塔、大叻瀑布/缆车/夏宫等（不含珍珠岛）</td></tr>
+          <tr><td>餐饮（8 天 · 含海鲜大餐）</td><td>¥700–950</td><td>越南物价亲民，海鲜实惠</td></tr>
+          <tr><td>越南电子签 e-visa</td><td>¥180–230</td><td>约 US$25，官网申请</td></tr>
+          <tr><td>保险 + 电话卡 + 杂费</td><td>¥250–400</td><td>旅游险、4G 卡、小费等</td></tr>
+          <tr class="total"><td>单人合计</td><td>≈ ¥6,700–7,400</td><td>单家庭（2 人）≈ ¥1.34 万–1.48 万</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="budget-cards reveal">
+      <div class="bcard"><div class="v">¥7.0k</div><div class="l">单人约 7,000 元<br>（中位估算）</div></div>
+      <div class="bcard"><div class="v">¥1.4万</div><div class="l">单家庭 2 人<br>含包车 / 多 1 晚 / 跳岛</div></div>
+      <div class="bcard"><div class="v">¥4.2万</div><div class="l">2 家庭 6 人<br>总预算参考</div></div>
+      <div class="bcard"><div class="v">3,600</div><div class="l">≈ 1 元人民币<br>兑换越南盾</div></div>
+    </div>
+    <p class="fx">* 汇率约 1 元 ≈ 3,600 越南盾（2026 年中参考）；文中越南盾价格为估算，实际以预订时为准。机票为最大变量，建议尽早出票、关注促销。</p>
+  </div>
+</section>
+<section class="tips" id="tips">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="rule"></div>
+      <div class="num">06 · GOOD TO KNOW</div>
+      <h2>出行 <em>实用贴士</em></h2>
+      <p>带长辈出游，提前备齐这些信息，全程更安心顺心。</p>
+    </div>
+    <div class="tip-grid">
+      <div class="tcard reveal">
+        <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v16"/></svg><h4>签证</h4></div>
+        <p>中国护照赴越<b>需提前办签</b>。建议官网（evisa.gov.vn）申请<b>电子签 e-visa</b>，约 US$25、3 个工作日左右出签，打印随身携带。</p>
+      </div>
+      <div class="tcard reveal">
+        <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5h5M9.5 14.5h5"/></svg><h4>货币 & 支付</h4></div>
+        <p>越南盾（VND），<b>1 元≈3600 盾</b>。带人民币/美元到市区金店换汇率更好；可银联取现。<b>Grab、部分商户支持微信/支付宝</b>，但仍需备现金。</p>
+      </div>
+      <div class="tcard reveal">
+        <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg><h4>天气 & 穿着</h4></div>
+        <p>7 月：胡志明/芽庄 28–34℃ 炎热多阵雨，备防晒、遮阳帽、轻便雨具；<b>大叻凉爽 15–25℃，务必带外套</b>。海边活动尽量上午或傍晚。</p>
+      </div>
+      <div class="tcard reveal">
+        <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 11h6"/><circle cx="12" cy="17" r="1"/></svg><h4>通讯 & 出行</h4></div>
+        <p>落地买 <b>Viettel/Mobifone 4G 卡</b>（约 50–100 元含大流量）。市内打车统一用 <b>Grab App</b>（车/摩托/外卖），价格透明、避免被宰。</p>
+      </div>
+      <div class="tcard reveal">
+        <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-5.5-7-11a7 7 0 0114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><h4>陪长辈出游</h4></div>
+        <p>备<b>晕车药、常用慢病药、肠胃药、防蚊液</b>；行程已放慢节奏、景点二选一不赶；城际改为<b>白天包车</b>、可中途多停靠休息；多预留休息与如厕时间。</p>
+      </div>
+      <div class="tcard reveal">
+        <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2L12 16.6 5.7 21l2.3-7.2-6-4.4h7.6z"/></svg><h4>安全 & 防坑</h4></div>
+        <p>市场购物大胆<b>砍价 5–7 折</b>；警惕路边强塞椰子/扁担拍照收费；过马路稳步匀速、注意摩托车流；贵重物品随身、电子签与护照拍照备份。</p>
+      </div>
+      <div class="tcard reveal">
+        <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h12v6a6 6 0 01-12 0z"/><path d="M6 22h12M9 22v-4M15 22v-4"/></svg><h4>插座 & 时差</h4></div>
+        <p>越南比北京<b>晚 1 小时</b>。插座多为双圆/扁脚（A/C/D 型），多兼容国标两脚插头，建议带<b>多功能转换头</b>与插线板。</p>
+      </div>
+      <div class="tcard reveal">
+        <div class="ti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg><h4>伴手礼</h4></div>
+        <p>G7/中原咖啡、滴漏咖啡壶、腰果、椰子糖、果干、鱼露、白虎活络膏/绿油精、越南斗笠、燕窝。液体记得<b>托运</b>，注意重量。</p>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="foot" id="foot">
+  <div class="fk reveal">Hẹn gặp lại Việt Nam · 后会有期</div>
+  <h3 class="reveal">愿这趟旅程，<em>满载欢声笑语</em></h3>
+  <div class="route reveal">
+    <span>昆明</span><span class="arr">✈</span><span>胡志明</span><span class="arr">🚌</span><span>大叻</span><span class="arr">🚐</span><span>芽庄</span><span class="arr">✈</span><span>胡志明</span><span class="arr">✈</span><span>昆明</span>
+  </div>
+  <small>越南家庭之旅 · 8 天 7 晚 · 2 家庭 6 人（含 4 位长辈）· 2026 年 7 月 9–16 日<br>本行程为规划建议，景点门票、车次、房价及航班时间请于出行前再次核实确认。祝旅途愉快、家人平安康健！</small>
+</footer>
+</main>
+
+<script>
+(function(){
+  // scroll progress
+  var prog=document.getElementById('progress');
+  function onScroll(){
+    var h=document.documentElement;
+    var sc=h.scrollTop||document.body.scrollTop;
+    var max=(h.scrollHeight-h.clientHeight)||1;
+    prog.style.width=(sc/max*100)+'%';
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // reveal on scroll (staggered)
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){
+        var sibs=Array.prototype.slice.call(e.target.parentNode.querySelectorAll('.reveal'));
+        var i=sibs.indexOf(e.target);
+        e.target.style.transitionDelay=(Math.min(i,6)*0.07)+'s';
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+  // active nav link
+  var links=Array.prototype.slice.call(document.querySelectorAll('#menu a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))}).filter(Boolean);
+  var sObs=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){
+        var id=e.target.id;
+        links.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+id)});
+      }
+    });
+  },{threshold:0.18,rootMargin:'-45% 0px -50% 0px'});
+  secs.forEach(function(s){sObs.observe(s)});
+
+  // mobile menu
+  var burger=document.getElementById('burger'),menu=document.getElementById('menu');
+  burger.addEventListener('click',function(){menu.classList.toggle('open')});
+  menu.addEventListener('click',function(e){if(e.target.tagName==='A')menu.classList.remove('open')});
+})();
+</script>
+</body>
+</html>
